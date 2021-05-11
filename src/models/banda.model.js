@@ -11,7 +11,7 @@ class Banda extends Model{
             "integrantes": Sequelize.STRING,
             "genero_banda": Sequelize.STRING,
             "avaliacao_estabelecimento": Sequelize.DECIMAL,
-        }, {sequelize, timestamps: false})
+        }, {sequelize, modelName: 'Banda',timestamps: false})
         this.removeAttribute("id");
         return this
     }

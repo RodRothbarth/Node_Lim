@@ -16,7 +16,7 @@ class Estabelecimento extends Model{
             "latitude": Sequelize.DECIMAL,
             "longitude": Sequelize.DECIMAL,
             "avaliacao_estabelecimento": Sequelize.DECIMAL,
-        }, {sequelize, timestamps: false})
+        }, {sequelize, modelName: 'Estabelecimento', timestamps: false})
         this.removeAttribute("id");
         return this
     }

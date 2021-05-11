@@ -11,14 +11,14 @@ class Evento extends Model{
             "Hora_inicio_evento": Sequelize.DATE,
             "valor_evento": Sequelize.SMALLINT,
             "hora_fim_evento": Sequelize.DATE,
-        }, {sequelize, timestamps: false})
+        }, {sequelize, modelName: 'Evento', timestamps: false})
         this.removeAttribute("id");
         return this
     }
 
-    static join(model){
-        this.belongsTo(model.Banda, {foreignKey:idbanda});
-        this.belongsTo(model.Estabelecimento, {foreignKey:idestabelecimento});
+    static join(models){
+        this.belongsTo(models.Banda, {foreignKey:'idbanda'});
+        this.belongsTo(models.Estabelecimento, {foreignKey:'idestabelecimento'});
     } 
 }
 

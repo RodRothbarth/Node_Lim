@@ -7,7 +7,7 @@ class Usuario extends Model{
             "ideusuario": Sequelize.SMALLINT,
             "email": Sequelize.STRING,
             "senha": Sequelize.STRING,
-        }, {sequelize, timestamps: false})
+        }, {sequelize, modelName: 'Usuario',timestamps: false})
         this.removeAttribute("id");
         return this
     }

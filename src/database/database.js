@@ -1,8 +1,8 @@
 import Sequelize from 'sequelize';
-import Estabelecimento from'../schema/estabelecimento.model';
-import Banda from '../schema/banda.model'
-import Evento from '../schema/evento.model';
-import Usuario from '../schema/usuario.model';
+import Estabelecimento from'../models/estabelecimento.model';
+import Banda from '../models/banda.model'
+import Evento from '../models/evento.model';
+import Usuario from '../models/usuario.model';
 
 class DataBase{
 
@@ -16,8 +16,9 @@ class DataBase{
         Estabelecimento.init(this.connection);
         Banda.init(this.connection);
         Evento.init(this.connection);
-        Evento.join(this.connection.models)
+        Evento.join
         Usuario.init(this.connection);
+
     }
 
 }
