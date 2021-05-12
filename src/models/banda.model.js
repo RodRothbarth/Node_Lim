@@ -4,7 +4,7 @@ import Sequelize, { Model } from 'sequelize';
 class Banda extends Model{
     static init(sequelize){
         super.init({
-            "idbanda": Sequelize.SMALLINT,
+            "idbanda": { type: Sequelize.SMALLINT, primarykey: true},
             "nome_banda": Sequelize.STRING,
             "cpf_cnpj": Sequelize.STRING,
             "cidade": Sequelize.STRING,
@@ -15,6 +15,9 @@ class Banda extends Model{
         this.removeAttribute("id");
         return this
     }
+    // static join(models){
+    //     this.hasMany(models.Evento);
+    // }
 }
 
 export default Banda;

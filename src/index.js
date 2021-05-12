@@ -1,7 +1,7 @@
 import express from 'express';
 import ControllerBanda from "./controller/controllerbanda";
-import ControllerUsuario from "./controller/controllerUsuario";
 import ControllerEvento from "./controller/controllerEvento";
+import ControllerUsuario from "./controller/controllerUsuario";
 import ControllerEstabelecimento from "./controller/controllerEstabelecimento";
 
 import './database/database'
@@ -10,7 +10,6 @@ const app = express();
 const port = 3333;
 
 app.use(express.json());
-
 
 app.get('/banda', ControllerBanda.get);
 app.put('/banda', ControllerBanda.put);

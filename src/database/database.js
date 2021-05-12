@@ -4,6 +4,8 @@ import Banda from '../models/banda.model'
 import Evento from '../models/evento.model';
 import Usuario from '../models/usuario.model';
 
+const models = [Evento, Banda, Estabelecimento, Usuario]
+
 class DataBase{
 
     constructor(){
@@ -11,16 +13,17 @@ class DataBase{
     }
 
     postgres(){
-        this.connection = new Sequelize({"dialect":"pg-hstore", "host":"localhost", "port": "5432", "username":"rodrigo", "password":"123456", "database":"dbbarletapp"})
-        console.log(this.connection)
-        Estabelecimento.init(this.connection);
-        Banda.init(this.connection);
-        Evento.init(this.connection);
-        Evento.join
-        Usuario.init(this.connection);
+        this.connection = new Sequelize({"dialect": "postgres", "host": "localhost", "port": '5433', "username": "postgres", "password": "Naotenho1senha", 'database':'dbLetItMusic', define: { timestamp: false, underscored: false, underscoredAll: false}})
 
+        models.map(model => model.init(this.connection)).map(model => model.associate && model.associate(this.connection.models))
     }
 
 }
 
 export default new DataBase(); 
+
+// Estabelecimento.init(this.connection);
+        // Banda.init(this.connection);
+        // Evento.init(this.connection);
+        // Evento.join(this.connection)
+        // Usuario.init(this.connection);

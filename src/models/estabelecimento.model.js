@@ -20,6 +20,10 @@ class Estabelecimento extends Model{
         this.removeAttribute("id");
         return this
     }
+
+    // static join(models){
+    //     this.hasMany(models.Evento);
+    // }
 }
 
 export default Estabelecimento;

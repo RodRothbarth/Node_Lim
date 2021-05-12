@@ -10,7 +10,7 @@ class Usuario extends Model{
         }, {sequelize, modelName: 'Usuario',timestamps: false})
         this.removeAttribute("id");
         return this
-    }
+    } 
 }
 
 export default Usuario;
