@@ -14,16 +14,12 @@ class DataBase{
 
     postgres(){
         this.connection = new Sequelize({"dialect": "postgres", "host": "localhost", "port": '5433', "username": "postgres", "password": "Naotenho1senha", 'database':'dbLetItMusic', define: { timestamp: false, underscored: false, underscoredAll: false}})
-
+        
         models.map(model => model.init(this.connection)).map(model => model.associate && model.associate(this.connection.models))
+
+        this.connection.authenticate().then(()=> console.log("connected to database")).catch(err=> console.log("Error: " +err))
     }
 
 }
 
 export default new DataBase(); 
-
-// Estabelecimento.init(this.connection);
-        // Banda.init(this.connection);
-        // Evento.init(this.connection);
-        // Evento.join(this.connection)
-        // Usuario.init(this.connection);

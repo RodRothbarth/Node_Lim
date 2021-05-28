@@ -11,6 +11,10 @@ const port = 3333;
 
 app.use(express.json());
 
+app.get('/', (req, res)=>{
+    res.send("logado na porta " + port)
+});
+
 app.get('/banda', ControllerBanda.get);
 app.put('/banda', ControllerBanda.put);
 app.delete('/banda', ControllerBanda.delete);
@@ -21,7 +25,7 @@ app.put('/usuario', ControllerUsuario.put);
 app.delete('/usuario', ControllerUsuario.delete);
 app.post('/usuario', ControllerUsuario.post);
 
-app.get('/eventos', ControllerEvento.get);
+app.get('/evento', ControllerEvento.get);
 app.put('/eventos', ControllerEvento.put);
 app.delete('/eventos', ControllerEvento.delete);
 app.post('/eventos', ControllerEvento.post);

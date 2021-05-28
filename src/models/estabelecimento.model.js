@@ -3,27 +3,31 @@ import Sequelize, { Model } from 'sequelize';
 class Estabelecimento extends Model{
     static init(sequelize){
         super.init({
-            "idestabelecimento": {type: Sequelize.SMALLINT, primarykey: true},
-            "razao_social": Sequelize.STRING,
+            "idestabelecimento": {type: Sequelize.INTEGER, primaryKey: true},
+            "razsocial": Sequelize.STRING,
             "cnpj": Sequelize.STRING,
             "logradouro": Sequelize.STRING,
             "numero": Sequelize.BIGINT,
             "bairro": Sequelize.STRING,
             "cep": Sequelize.STRING,
             "cidade": Sequelize.STRING,
-            "ponto_de_referencia": Sequelize.STRING,
-            "genero_bar": Sequelize.STRING,
+            "pontodereferencia": Sequelize.STRING,
+            "generobar": Sequelize.STRING,
             "latitude": Sequelize.DECIMAL,
             "longitude": Sequelize.DECIMAL,
-            "avaliacao_estabelecimento": Sequelize.DECIMAL,
-        }, {sequelize, modelName: 'Estabelecimento', timestamps: false})
+            "avalestabelecimento": Sequelize.DECIMAL,
+            "uf": Sequelize.STRING
+        }, {sequelize, timestamps: false, freezeTableName: true})
         this.removeAttribute("id");
         return this
     }
 
-    // static join(models){
-    //     this.hasMany(models.Evento);
-    // }
+//     static associate(model){
+//         this.hasMany(model.Evento, {
+//             foreignKey:"idevento",
+//            targetKey:"idevento"
+//         });
+//     } 
 }
 
 export default Estabelecimento;

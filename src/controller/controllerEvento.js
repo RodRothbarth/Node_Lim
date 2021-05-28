@@ -1,33 +1,41 @@
-import Banda from '../models/banda.model'
+// import Banda from '../models/banda.model'
 import Evento from '../models/evento.model'
-import Estabelecimento from '../models/estabelecimento.model'
+// import Estabelecimento from '../models/estabelecimento.model'
 
 class ControllerEvento{
 
     async  get(req, res){
-        try { 
-            const evento = await Evento
-        .findAll({
-            include: [
-              {
-                model: Banda,         
-              },
-              {
-                model: Estabelecimento,
-              }
-            ]
-          });
-        console.log(evento)
+        try { const evento = await Evento
+        .findAll();
         return  res.json(evento)
         }catch(error){
             console.error(error)
         }
-        return res.json({mensagem:'nao deu'})      
+        return res.json({mensagem:'nao deu pra pegar o evento'})      
     };
 
-    async post(res, req){
+    // async  getMeuEvento(req, res){
+    //     try { 
+    //         const evento = await Evento
+    //     .findAll({
+    //         attributes: ['nomedoevento', 'dtevento', 'hrinicioevento', 'hrfimevento', 'valorevento'],
+    //         where: {
+    //             idestabelecimento:{
+    //                 [Op.iLike]: 'parametros do local'
+    //             }
+    //         }
+    //     });
+    //     console.log(evento)
+    //     return  res.json(evento)
+    //     }catch(error){
+    //         console.error(error)
+    //     }
+    //     return res.json({mensagem:'nao deu'})      
+    // };
+
+    async post(req, res){
         try { const evento = await Evento
-        .findAll()
+        .create({nomedoevento, dtevento, hrinicioevento, hrfimevento, valorevento })
         return  res.status(200).json(evento)
         }catch(error){
             res.status(400).json(error)
@@ -35,7 +43,7 @@ class ControllerEvento{
         return res.json('nao deu') 
     };
 
-    async put(res, req){
+    async put(req, res){
         return await Evento
         .findOne(req.params.idevento)
         .then( evento => {
@@ -49,7 +57,7 @@ class ControllerEvento{
         .catch((error)=>{res.status(400).json(error)});
     };
 
-    async delete(res, req){
+    async delete(req, res){
         return await Evento
         .findOne(req.params.idevento)
         .then( evento => {
@@ -65,6 +73,3 @@ class ControllerEvento{
     };
 
 export default new ControllerEvento();
-
-// .then((evento) => res.status(200).json(evento))
-        // .catch((error)=>{res.status(400).json(error)})  
