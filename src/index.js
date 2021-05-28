@@ -16,24 +16,18 @@ app.get('/', (req, res)=>{
 });
 
 app.get('/banda', ControllerBanda.get);
-app.put('/banda', ControllerBanda.put);
-app.delete('/banda', ControllerBanda.delete);
-app.post('/banda', ControllerBanda.post);
-
-app.get('/usuario', ControllerUsuario.get);
-app.put('/usuario', ControllerUsuario.put);
-app.delete('/usuario', ControllerUsuario.delete);
-app.post('/usuario', ControllerUsuario.post);
-
-app.get('/evento', ControllerEvento.get);
-app.put('/eventos', ControllerEvento.put);
-app.delete('/eventos', ControllerEvento.delete);
-app.post('/eventos', ControllerEvento.post);
-
 app.get('/estabelecimento', ControllerEstabelecimento.get);
-app.put('/estabelecimento', ControllerEstabelecimento.put);
-app.delete('/estabelecimento', ControllerEstabelecimento.delete);
-app.post('/estabelecimento', ControllerEstabelecimento.post);
+// app.get('/usuario', ControllerUsuario.get);
+// app.put('/usuario', ControllerUsuario.put);
+// app.delete('/usuario', ControllerUsuario.delete);
+// app.post('/usuario', ControllerUsuario.post);
+
+app.get('/eventos', ControllerEvento.get);
+app.get('/estabelecimento/:idlocal/eventos', ControllerEvento.getMeuEvento);
+app.put('/evento/:idevento', ControllerEvento.put);
+app.post('estabelecimento/:idlocal/evento/:idevento', ControllerEvento.post);
+app.delete('/evento/:idevento', ControllerEvento.delete);
+
 
 app.listen(port, ()=>{
     console.log("logado na porta " + port)

@@ -14,24 +14,24 @@ class ControllerEvento{
         return res.json({mensagem:'nao deu pra pegar o evento'})      
     };
 
-    // async  getMeuEvento(req, res){
-    //     try { 
-    //         const evento = await Evento
-    //     .findAll({
-    //         attributes: ['nomedoevento', 'dtevento', 'hrinicioevento', 'hrfimevento', 'valorevento'],
-    //         where: {
-    //             idestabelecimento:{
-    //                 [Op.iLike]: 'parametros do local'
-    //             }
-    //         }
-    //     });
-    //     console.log(evento)
-    //     return  res.json(evento)
-    //     }catch(error){
-    //         console.error(error)
-    //     }
-    //     return res.json({mensagem:'nao deu'})      
-    // };
+    async  getMeuEvento(req, res){
+        try { 
+            const evento = await Evento
+        .findAll({
+            attributes: ['nomedoevento', 'dtevento', 'hrinicioevento', 'hrfimevento', 'valorevento'],
+            where: {
+                idestabelecimento:{
+                    [Op.iLike]: 'parametros do local'
+                }
+            }
+        });
+        console.log(evento)
+        return  res.json(evento)
+        }catch(error){
+            console.error(error)
+        }
+        return res.json({mensagem:'nao deu'})      
+    };
 
     async post(req, res){
         try { const evento = await Evento
