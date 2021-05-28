@@ -17,10 +17,6 @@ app.get('/', (req, res)=>{
 
 app.get('/banda', ControllerBanda.get);
 app.get('/estabelecimento', ControllerEstabelecimento.get);
-// app.get('/usuario', ControllerUsuario.get);
-// app.put('/usuario', ControllerUsuario.put);
-// app.delete('/usuario', ControllerUsuario.delete);
-// app.post('/usuario', ControllerUsuario.post);
 
 app.get('/eventos', ControllerEvento.get);
 app.get('/estabelecimento/:idlocal/eventos', ControllerEvento.getMeuEvento);
