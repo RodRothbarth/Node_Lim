@@ -18,6 +18,8 @@ app.get('/', (req, res)=>{
 app.get('/banda', ControllerBanda.get);
 app.get('/estabelecimento', ControllerEstabelecimento.get);
 
+app.post('avaliacao', ControllerBanda.post)
+
 app.get('/eventos', ControllerEvento.get);
 app.get('/estabelecimento/:idlocal/eventos', ControllerEvento.getMeuEvento);
 app.put('/evento/:idevento', ControllerEvento.put);
