@@ -13,7 +13,7 @@ class DataBase{
     }
 
     postgres(){
-        this.connection = new Sequelize({"dialect": "postgres", "host": "localhost", "port": '5433', "username": "postgres", "password": "Naotenho1senha", 'database':'dbLetItMusic', define: { timestamp: false, underscored: false, underscoredAll: false}})
+        this.connection = new Sequelize({"dialect": "postgres", "host": "localhost", "port": '5432', "username": "postgres", "password": "alfa0611", 'database':'dbLetItMusic', define: { timestamp: false, underscored: false, underscoredAll: false}})
         
         models.map(model => model.init(this.connection)).map(model => model.associate && model.associate(this.connection.models))
 
