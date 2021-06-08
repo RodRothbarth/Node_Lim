@@ -21,7 +21,7 @@ class ControllerEvento{
             attributes: ['nomedoevento', 'dtevento', 'hrinicioevento', 'hrfimevento', 'valorevento'],
             where: {
                 idestabelecimento:{
-                    [Op.iLike]: 'parametros do local'
+                    [Op.iLike]: 'idlocal = 1'
                 }
             }
         });
