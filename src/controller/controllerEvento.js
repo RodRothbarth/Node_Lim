@@ -36,12 +36,12 @@ class ControllerEvento{
     async post(req, res){
         try { const evento = await Evento
         .create({nomedoevento, dtevento, hrinicioevento, hrfimevento, valorevento })
-        return  res.status(200).json(evento)
+        return  res.json(evento)
         }catch(error){
-            res.status(400).json(error)
-        }    
-        return res.json('nao deu') 
-    };
+            console.error(error)
+        }
+        return res.json({mensagem:'nao deu pa fazer o eventu, KIRIDU!'})      
+    }; 
 
     async put(req, res){
         return await Evento

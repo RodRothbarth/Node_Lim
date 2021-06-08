@@ -4,9 +4,12 @@ class ControllerEstabelecimento{
 
     async  get(res, req){
         try { const estabelecimento = await Estabelecimento
-        .findAll()
-        return  res.status(200).json(estabelecimento)
-        }catch(error){res.status(400).json(error)}     
+            .findAll();
+            return  res.json(estabelecimento)
+            }catch(error){
+                console.error(error)
+            }
+            return res.json({mensagem:'nao deu pra pegá ux Lugá, Rapazi'})     
     };
 
     async post(res, req){
