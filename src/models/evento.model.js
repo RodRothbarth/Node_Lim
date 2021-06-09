@@ -3,7 +3,7 @@ import Sequelize, { Model } from 'sequelize';
 class Evento extends Model{
     static init(sequelize){
         super.init({
-            "idevento": { type: Sequelize.INTEGER, primaryKey: true},
+            "idevento": { type: Sequelize.INTEGER, primaryKey: true, autoIncrement: true},
             "dtevento": Sequelize.DATE,
             "nomedoevento": Sequelize.STRING,
             "hrinicioevento": Sequelize.DATE,

@@ -35,9 +35,9 @@ class ControllerEvento{
 
     async post(req, res){
         try { 
-            const {nomedoevento, dtevento, hrinicioevento, hrfimevento, valorevento} = req.body
+            const {idevento, nomedoevento, dtevento, hrinicioevento, hrfimevento, valorevento} = req.body
             const evento = await Evento
-        .create({nomedoevento, dtevento, hrinicioevento, hrfimevento, valorevento })
+        .create({idevento, nomedoevento, dtevento, hrinicioevento, hrfimevento, valorevento })
         return  res.json(evento)
         }catch(error){
             console.error(error)
