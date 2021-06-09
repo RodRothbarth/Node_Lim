@@ -12,7 +12,7 @@ class Banda extends Model{
             "generobanda": Sequelize.STRING,
             "uf": Sequelize.STRING,
             "avalbanda": Sequelize.DECIMAL,
-        }, {sequelize, timestamps: false, freezeTableName: true})
+        }, {sequelize, modelName:"banda", tableName:'banda', timestamps: false, freezeTableName: true})
         this.removeAttribute("id");
         return this
     }

@@ -7,7 +7,7 @@ class Evento extends Model{
             "dtevento": Sequelize.DATE,
             "nomedoevento": Sequelize.STRING,
             "hrinicioevento": Sequelize.DATE,
-            "valorevento": Sequelize.SMALLINT,
+            "valorevento": Sequelize.STRING,
             "hrfimevento": Sequelize.DATE
         }, {sequelize, modelName:"evento", tableName:'evento', timestamps: false, freezeTableName: true})
         this.removeAttribute("id");

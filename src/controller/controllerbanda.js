@@ -2,7 +2,7 @@ import Banda from '../models/banda.model'
 
 class ControllerBanda{
 
-    async  get(res, req){
+    async  get(req, res){
         try { const banda = await Banda
             .findAll();
             return  res.json(banda)

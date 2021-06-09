@@ -34,13 +34,15 @@ class ControllerEvento{
     };
 
     async post(req, res){
-        try { const evento = await Evento
+        try { 
+            const {nomedoevento, dtevento, hrinicioevento, hrfimevento, valorevento} = req.body
+            const evento = await Evento
         .create({nomedoevento, dtevento, hrinicioevento, hrfimevento, valorevento })
         return  res.json(evento)
         }catch(error){
             console.error(error)
         }
-        return res.json({mensagem:'nao deu pa fazer o eventu, KIRIDU!'})      
+        return res.json({mensagem:'nao deu pa fazer o eventu, KIRIDU!'} + error)      
     }; 
 
     async put(req, res){

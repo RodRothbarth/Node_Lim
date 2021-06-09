@@ -2,7 +2,7 @@ import Estabelecimento from '../models/estabelecimento.model';
 
 class ControllerEstabelecimento{
 
-    async  get(res, req){
+    async  get(req, res){
         try { const estabelecimento = await Estabelecimento
             .findAll();
             return  res.json(estabelecimento)

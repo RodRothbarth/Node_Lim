@@ -17,7 +17,7 @@ class Estabelecimento extends Model{
             "longitude": Sequelize.DECIMAL,
             "avalestabelecimento": Sequelize.DECIMAL,
             "uf": Sequelize.STRING
-        }, {sequelize, timestamps: false, freezeTableName: true})
+        }, {sequelize, modelName:"estabelecimento", tableName:'estabelecimento', timestamps: false, freezeTableName: true})
         this.removeAttribute("id");
         return this
     }
