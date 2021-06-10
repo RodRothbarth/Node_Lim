@@ -18,9 +18,10 @@ app.get('/', (req, res)=>{
 app.get('/bandas', ControllerBanda.get);
 app.get('/estabelecimentos', ControllerEstabelecimento.get);
 app.get('/eventos', ControllerEvento.get);
+app.post('/usuario', ControllerUsuario.post);
+
+
 app.get('/usuario', ControllerUsuario.get);
-
-
 app.post('/evento', ControllerEvento.post);
 app.post('/estabelecimento/:idlocal/evento', ControllerEvento.post); //este é o correto
 app.post('/avaliacao/:idlocal', ControllerBanda.post)

@@ -2,7 +2,7 @@ import Usuario from '../models/usuario.model'
 
 class ControllerUsuario{
 
-    async  get(res, req){
+    async  post(res, req){
         try { const usuario = await Usuario
         .findOne(req.body.email)
         

@@ -4,7 +4,7 @@ import Sequelize, { Model } from 'sequelize';
 class Usuario extends Model{
     static init(sequelize){
         super.init({
-            "ideusuario": Sequelize.SMALLINT,
+            "ideusuario": {type: Sequelize.SMALLINT, autoIncrement: true},
             "email": Sequelize.STRING,
             "senha": Sequelize.STRING,
         }, {sequelize, modelName: 'Usuario',timestamps: false})
