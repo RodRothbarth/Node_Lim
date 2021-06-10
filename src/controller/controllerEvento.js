@@ -46,32 +46,28 @@ class ControllerEvento{
     }; 
 
     async put(req, res){
-        return await Evento
-        .findOne(req.params.idevento)
-        .then( evento => {
-            if(!evento){return res.status(404).send({msg: "evento não encontrado"})
-        }
-            return evento
-            .update({})
-            .then((evento) => res.status(200).json(evento))
-            .catch((error)=>{res.status(400).json(error)})
-        })
-        .catch((error)=>{res.status(400).json(error)});
-    };
+    const {idestabelecimento, idevento} = req.params
+    const {nomedoevento, dtevento, hrinicioevento, hrfimevento, valorevento} = req.body
+        
+        try { const evento = await Evento
+            .findOneAndUpdate({idestabelecimento, idevento},  {nomedoevento, dtevento, hrinicioevento, hrfimevento, valorevento })
+            return  res.json(evento)
+            }catch(error){
+                console.error(error)
+            }
+            return res.json({mensagem:'nao deu pra apagar o evento'})      
+        };
 
     async delete(req, res){
-        return await Evento
-        .findOne(req.params.idevento)
-        .then( evento => {
-            if(!evento){return res.status(404).send({msg: "evento não encontrado"});
-        }
-            return evento
-            .destroy()
-            .then(() => res.status(204).send())
-            .catch((error) => res.status(400).send(error));
-            })
-            .catch((error)=>{res.status(400).json(error)});
-            };
+
+        try { const evento = await Evento
+            .deleteOne(req.params);
+            return  res.json(evento)
+            }catch(error){
+                console.error(error)
+            }
+            return res.json({mensagem:'nao deu pra apagar o evento'})      
+        };
     };
 
 export default new ControllerEvento();

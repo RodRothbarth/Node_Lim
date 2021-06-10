@@ -2,6 +2,7 @@ import express from 'express';
 import ControllerBanda from "./controller/controllerbanda";
 import ControllerEvento from "./controller/controllerEvento";
 import ControllerEstabelecimento from "./controller/controllerEstabelecimento";
+import ControllerUsuario from "./controller/controllerUsuario"
 
 import './database/database'
 
@@ -17,15 +18,20 @@ app.get('/', (req, res)=>{
 app.get('/bandas', ControllerBanda.get);
 app.get('/estabelecimentos', ControllerEstabelecimento.get);
 app.get('/eventos', ControllerEvento.get);
-app.post('/evento', ControllerEvento.post);
+app.get('/usuario', ControllerUsuario.get);
 
-app.post('/avaliacao', ControllerBanda.post)
-app.get('/avaliacao', ControllerBanda.get)
+
+app.post('/evento', ControllerEvento.post);
+app.post('/estabelecimento/:idlocal/evento', ControllerEvento.post); //este é o correto
+app.post('/avaliacao/:idlocal', ControllerBanda.post)
+
+
+app.delete('/estabelecimento/:idlocal/eventos/:idevento', ControllerEvento.delete);
 
 app.get('/estabelecimento/:idlocal/eventos', ControllerEvento.getMeuEvento);
-app.put('/evento/:idevento', ControllerEvento.put);
+app.put('/estabelecimento/:idlocal/eventos/:idevento', ControllerEvento.put);
+
 // app.post('estabelecimento/:idlocal/evento/:idevento', ControllerEvento.post);
-app.delete('/evento/:idevento', ControllerEvento.delete);
 
 app.listen(port, ()=>{
     console.log("logado na porta " + port)
